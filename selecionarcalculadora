@@ -1,0 +1,50 @@
+import os
+import subprocess
+
+calculadora_rutas = {
+    1: r'C:\SMX2\M12\Sintesis\calculadora1',
+    2: r'C:\SMX2\M12\Sintesis\calculadora2',
+    3: r'C:\SMX2\M12\Sintesis\calculadora3',
+    4: r'C:\SMX2\M12\Sintesis\calculadora4',
+    5: r'C:\SMX2\M12\Sintesis\calculadora5',
+    6: r'C:\SMX2\M12\Sintesis\calculadora6',
+    7: r'C:\SMX2\M12\Sintesis\calculadora7',
+    8: r'C:\SMX2\M12\Sintesis\calculadora8',
+}
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def show_menu():
+    print("== Menú ==")
+    for i in range(1, 9):
+        print(f"{i}. Calculadora {i}")
+    print("0. Salir")
+
+def select_page(page_number):
+    clear_screen()
+    if page_number in calculadora_rutas:
+        calculadora_ruta = calculadora_rutas[page_number]
+        if os.path.exists(calculadora_ruta):
+            subprocess.run(["python", calculadora_ruta])
+        else:
+            print(f"La calculadora {page_number} no existe en la ruta especificada.")
+    else:
+        print("Opción inválida. Selecciona un número de calculadora válido.")
+    input("Presiona Enter para continuar...")
+
+def main():
+    while True:
+        clear_screen()
+        show_menu()
+        choice = input("Selecciona una opción: ")
+        if choice == "0":
+            print("¡Hasta luego!")
+            break
+        elif choice in ["1", "2", "3", "4", "5", "6", "7", "8"]:
+            select_page(int(choice))
+        else:
+            input("Opción inválida. Presiona Enter para continuar...")
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,27 @@
+import random
+
+def jugar_adivinanza():
+    numero_secreto = random.randint(1, 100)
+    intentos = 0
+    
+    print("¡Bienvenido al juego de adivinanzas!")
+    print("Estoy pensando en un número del 1 al 100. ¡Adivina cuál es!")
+    
+    while True:
+        intentos += 1
+        adivinanza = int(input("Ingrese su adivinanza: "))
+        
+        if adivinanza == numero_secreto:
+            print(f"¡Felicidades! ¡Adivinaste el número en {intentos} intentos!")
+            break
+        elif adivinanza < numero_secreto:
+            print("El número que estás buscando es mayor. ¡Inténtalo de nuevo!")
+        else:
+            print("El número que estás buscando es menor. ¡Inténtalo de nuevo!")
+
+def main():
+    jugar_adivinanza()
+
+if __name__ == "__main__":
+    main()
+     

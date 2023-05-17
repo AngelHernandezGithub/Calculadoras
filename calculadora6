@@ -1,0 +1,33 @@
+def metros_a_pulgadas(metros):
+    return metros * 39.37
+
+def metros_a_pies(metros):
+    return metros * 3.281
+
+def metros_a_yardas(metros):
+    return metros * 1.094
+
+def main():
+    print("Conversor de Unidades de Longitud")
+    print("1. Metros a Pulgadas")
+    print("2. Metros a Pies")
+    print("3. Metros a Yardas")
+    
+    opcion = input("Ingrese el número de la conversión que desea realizar: ")
+    
+    metros = float(input("Ingrese el valor en metros: "))
+    
+    if opcion == "1":
+        resultado = metros_a_pulgadas(metros)
+        print(f"{metros} metros equivale a {resultado} pulgadas.")
+    elif opcion == "2":
+        resultado = metros_a_pies(metros)
+        print(f"{metros} metros equivale a {resultado} pies.")
+    elif opcion == "3":
+        resultado = metros_a_yardas(metros)
+        print(f"{metros} metros equivale a {resultado} yardas.")
+    else:
+        print("Opción inválida.")
+
+if __name__ == "__main__":
+    main()

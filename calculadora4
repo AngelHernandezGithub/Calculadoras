@@ -1,0 +1,18 @@
+def calcular_promedio(numeros):
+    suma = sum(numeros)
+    promedio = suma / len(numeros)
+    return promedio
+
+def main():
+    cantidad_numeros = int(input("Ingrese la cantidad de números: "))
+
+    numeros = []
+    for i in range(cantidad_numeros):
+        numero = float(input(f"Ingrese el número {i+1}: "))
+        numeros.append(numero)
+
+    promedio = calcular_promedio(numeros)
+    print("El promedio es:", promedio)
+
+if __name__ == "__main__":
+    main()
